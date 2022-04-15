@@ -16,28 +16,48 @@ function playRound(playerSelection, computerSelection) {
     return "It's a tie!"
   }
   if (playerSelection == "rock" && computerSelection == "scissors") {
+    userScore++;
     return "You win! Rock breaks scissors."
   }
   if (playerSelection == "scissors" && computerSelection == "paper") {
+    userScore++;
     return "You win! Scissors cut paper."
   }
   if (playerSelection == "paper" && computerSelection == "rock") {
+    userScore++;
     return "You win! Paper covers rock."
   }
   if (playerSelection == "scissors" && computerSelection == "rock") {
+    cpuScore++;
     return "You lose! Scissors are broken by rock."
   }
   if (playerSelection == "paper" && computerSelection == "scissors") {
+    cpuScore++;
     return "You lose! Paper is cut by scissors."
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
+    cpuScore++;
     return "You lose! Rock is covered by paper."
   }
 }
 
-const playerSelection = "rock";
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+  for (let i = 0; i < 5; i++) {
+    let user = prompt("Please enter 'rock', 'paper', or 'scissors.'")
+    user = user.toLowerCase();
+    let cpu = computerPlay();
+    playRound(user, cpu);
+  }
+}
 
+let userScore = 0;
+let cpuScore = 0;
 
-  
+game();
+
+if (userScore > cpuScore) {
+  console.log("You win!")
+}
+else {
+  console.log("You lose!")
+}
