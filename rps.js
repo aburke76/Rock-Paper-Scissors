@@ -46,7 +46,7 @@ function game() {
     let user = prompt("Please enter 'rock', 'paper', or 'scissors.'")
     user = user.toLowerCase();
     let cpu = computerPlay();
-    playRound(user, cpu);
+    console.log(playRound(user, cpu));
   }
 }
 
